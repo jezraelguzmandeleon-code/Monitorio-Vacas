@@ -22,45 +22,43 @@
 
 <div id="map"></div>
 
-
-    // 1. Inicializamos el mapa en una vista general
+<script>
+    
     var map = L.map('map').setView([14.637, -90.488], 13); 
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    // --- SECCIÓN DE TU UBICACIÓN ---
+    
 
-    // Función para cuando se encuentra tu posición
+    
     function onLocationFound(e) {
         var radius = e.accuracy / 2;
 
-        // Marcador para ti
+        
         L.marker(e.latlng).addTo(map)
             .bindPopup("Estás aquí (dentro de " + radius.toFixed(0) + " metros)").openPopup();
 
-        // Círculo que indica el margen de error del GPS
+        
         L.circle(e.latlng, radius).addTo(map);
         
-        // Centrar el mapa en ti
+        
         map.setView(e.latlng, 16);
     }
 
-    // Función por si hay error al buscarte
+    
     function onLocationError(e) {
         alert("No se pudo obtener tu ubicación: " + e.message);
     }
 
-    // Pedir al navegador la ubicación actual
+    
     map.locate({setView: true, maxZoom: 16});
     map.on('locationfound', onLocationFound);
     map.on('locationerror', onLocationError);
 
 
-    // --- SECCIÓN DE TUS VACAS (Ejemplo) ---
-
-    // Marcador para la Vaca #1 (Posición estática de ejemplo cerca de ti)
+    
     var vaca1 = L.marker([14.638, -90.489]).addTo(map);
     vaca1.bindPopup("<b>Vaca ID: 001</b><br>Estado: Pastando");
 
@@ -68,8 +66,3 @@
 
 </body>
 </html>
-
-
-
-
-
