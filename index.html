@@ -26,19 +26,18 @@
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
 <script>
-  // 2. Tu configuración (la que ya tenías está bien)
- const firebaseConfig = {
+  // 2. Configuración (Asegúrate de que los valores entre " " sean los tuyos)
+  const firebaseConfig = {
     apiKey: "TU_API_KEY",
-    authDomain: "tu-proyecto.firebaseapp.com",
-    databaseURL: "https://tu-proyecto-default-rtdb.firebaseio.com",
-    projectId: "tu-proyecto",
-    storageBucket: "tu-proyecto.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "1:123456789:web:abcdef"
+    authDomain: "monitoreo-vacas.firebaseapp.com",
+    databaseURL: "https://monitoreo-vacas-default-rtdb.firebaseio.com",
+    projectId: "monitoreo-vacas",
+    storageBucket: "monitoreo-vacas.appspot.com",
+    messagingSenderId: "TU_ID",
+    appId: "TU_APP_ID"
   };
 
-// Initialize Firebase
-ffirebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
   const database = firebase.database();
     // 1. Inicializamos el mapa en una vista general
     var map = L.map('map').setView([14.637, -90.488], 13); 
@@ -85,6 +84,7 @@ ffirebase.initializeApp(firebaseConfig);
 
 </body>
 </html>
+
 
 
 
